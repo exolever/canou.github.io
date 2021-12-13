@@ -1,3 +1,7 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/$ /$1 [L,R]
+Options -Multiviews -Indexes +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+DirectorySlash Off
+
+# remove trailing slash
+RewriteRule ^(.*)\/(\?.*)?$ $1$2 [R=301,L]
